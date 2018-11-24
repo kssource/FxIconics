@@ -269,17 +269,20 @@ public class FxIconicsShowcase extends Application {
                 });
             }
 
-            if (i % calculateItemsPerRow() == 0) {
-                hBox = new HBox(3);
-                // center the notes
-                hBox.setAlignment(Pos.CENTER);
-                hBox.getChildren().add(label);
-                vBox.getChildren().add(hBox);
-            } else {
-                if (hBox != null && hBox.getChildren().size() != 0) {
-                    hBox.getChildren().add(label);
-                }
-            }
+			if(hBox == null) {
+				hBox = new HBox(3);
+				hBox.setAlignment(Pos.CENTER);
+				vBox.getChildren().add(hBox);
+			}
+			
+			int rowChildrenCount = hBox.getChildren().size();
+			if (rowChildrenCount > 0 && rowChildrenCount % calculateItemsPerRow() == 0) {
+				hBox = new HBox(3);
+				hBox.setAlignment(Pos.CENTER);
+				vBox.getChildren().add(hBox);
+			}
+
+			hBox.getChildren().add(label);
         }
 
         Tab tab = tabPane.getTabs().get(selected);
