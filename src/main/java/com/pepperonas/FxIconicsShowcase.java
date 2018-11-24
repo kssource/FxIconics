@@ -269,6 +269,7 @@ public class FxIconicsShowcase extends Application {
                 });
             }
 
+			
 			if(hBox == null) {
 				hBox = new HBox(3);
 				hBox.setAlignment(Pos.CENTER);
